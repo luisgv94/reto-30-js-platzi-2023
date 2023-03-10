@@ -1,0 +1,15 @@
+{
+  "name": "reto-30-dias-js",
+  "version": "1.0.0",
+  "description": "Reto de 30 dias de JS en Platzi",
+  "main": "src/index.js",
+  "scripts": {},
+  "keywords": [
+    "reto",
+    "js"
+  ],
+  "author": "Luis Gomero",
+  "license": "MIT",
+  "dependencies": {},
+  "type": "module"
+}
