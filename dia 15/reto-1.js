@@ -58,10 +58,12 @@ function hotelSystem(rooms) {
   };
 
   const getAvailableRooms = (checkIn, checkOut) => {
-    const initialReservations = Array.from(
-      { length: capacity },
-      (_, i) => i + 1
-    ).reduce((acc, curr) => ((acc[curr] = []), acc), {});
+    const initialReservations = [...Array(capacity).keys()]
+      .map((i) => i + 1)
+      .reduce((acc, curr) => {
+        acc[curr] = [];
+        return acc;
+      }, {});
 
     console.log('initialReservations', initialReservations);
 
@@ -141,20 +143,6 @@ hotel.addReservation({
   name: 'John Doe',
   checkIn: '03/01',
   checkOut: '05/01',
-  roomNumber: 1,
-});
-hotel.addReservation({
-  id: 3,
-  name: 'John Doe',
-  checkIn: '13/01',
-  checkOut: '15/01',
-  roomNumber: 1,
-});
-hotel.addReservation({
-  id: 2,
-  name: 'Pepe Doe',
-  checkIn: '01/01',
-  checkOut: '10/01',
   roomNumber: 9,
 });
 // hotel.addReservation({
