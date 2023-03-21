@@ -1,0 +1,15 @@
+import { Flight } from './Flight.js';
+import { Reservation } from './Reservation.js';
+
+export class PremiumFlight extends Flight {
+  constructor(origin, destination, date, capacity, price, specialService) {
+    super(origin, destination, date, capacity, price);
+    this.specialService = specialService;
+  }
+
+  // Override to apply logic
+  addFlightToPassenger(passenger) {
+    this.price += this.specialService;
+    passenger.addFlight(this);
+  }
+}
