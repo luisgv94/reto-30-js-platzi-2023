@@ -8,7 +8,17 @@
 
 function validateForm(formData, registeredUsers) {
   const requiredFields = ['name', 'lastname', 'email', 'password'];
-  const formFields = Object.keys(formData);
+  // const formFields = Object.keys(formData);
+  const formFields = [];
+  const formDataEntries = Object.entries(formData);
+  formDataEntries.forEach(([key, value]) => {
+    if (value) {
+      formFields.push(key);
+    }
+  });
+
+  console.log('formFields', formFields);
+
   let missingFields = requiredFields.filter((x) => !formFields.includes(x));
   if (missingFields.length) {
     throw new Error(`Faltan los siguientes campos: ${missingFields}`);
@@ -41,6 +51,8 @@ function validateForm(formData, registeredUsers) {
 //TEST 2
 const formData = {
   name: 'Juan',
+  lastname: '',
+  email: 'juan@example.com',
   password: '123456',
 };
 const registeredUsers = [
