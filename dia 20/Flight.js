@@ -12,6 +12,7 @@ export class Flight {
 
   addFlightToPassenger(passenger) {
     passenger.addFlight(this);
+    return this;
   }
 
   sellTicket(passenger) {
@@ -21,8 +22,8 @@ export class Flight {
         age: passenger.age,
       });
       this.capacity -= 1;
-      this.addFlightToPassenger(passenger);
-      return new Reservation(this, passenger);
+      const cloneFlight = this.addFlightToPassenger(passenger);
+      return new Reservation(cloneFlight, passenger);
     }
   }
 }

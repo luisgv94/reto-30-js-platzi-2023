@@ -26,5 +26,9 @@ const flight = new EconomicFlight('New York', 'Paris', '2023-12-25', 100, 200);
 const passenger = new Passenger('Pedro', 'Gutierrez', 17);
 
 const reservation = flight.sellTicket(passenger);
+const reservation2 = flight.sellTicket(passenger);
 
 console.log(reservation.flight.price);
+console.log(reservation2.flight.price);
+console.log(flight.passengers);
+console.log(passenger);
